@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Data</title>
+</head>
+<body>
+   <div class="container mx-auto p-5 ">
+        <h1>Server IP : <%= ip %></h1>
+
+        <% if(data.length > 0 ) { %>
+            <table class="w-full">
+                <thead class="border-2 ">
+                    <td class="border text-center">ID</td>
+                    <td class="border text-center">Nama</td>
+                    <td class="border text-center">Gambar</td>
+                    <td class="border text-center">Link Gambar</td>
+                </thead>
+                <tbody>
+                    <% data.forEach(data => { %>
+                        <tr class="border-2 p-2">
+                            <td class="border-2 text-center p-1"><%= data.id %></td>
+                            <td class="border-2 text-center p-1"><%= data.name %></td>
+                            <td class="border-2 text-center p-1"><img src="<%= data.gambar %>" width="200px"  class="mx-auto" alt=""></td>
+                            <td class="border-2 text-center p-1"><a href="<%= data.gambar %>">Link...</a></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else  { %>
+            <h1>Data Belum tersedia</h1>
+        <% } ; %>
+
+            <a class="bg-slate-300 text-lg rounded-md p-2 mt-5 hover:bg-cyan-300 transition-colors inline-block " href="/create">Buat Profile</a>
+
+   </div>
+</body>
+</html>
