@@ -52,7 +52,7 @@
             payload.append('name', name.value)
             payload.append('gambar', gambar.files[0])
 
-            const res = await fetch('http://localhost:3000/create-data', {
+            const res = await fetch('/create-data', {
                 method:'POST',
                 body: payload
             })
