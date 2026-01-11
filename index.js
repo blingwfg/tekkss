@@ -40,7 +40,7 @@ app.get('/' , async (req, res) =>{
 })
 
 app.get('/create' , async (req, res) =>{
-    res.render('create')
+    res.render('create', {ip:ip.address()})
 })
 
 app.post('/create-data' , upload.single('gambar'), async (req, res) =>{
