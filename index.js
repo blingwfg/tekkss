@@ -77,9 +77,11 @@ app.post('/create-data' , upload.single('gambar'), async (req, res) =>{
 })
 
 
-app.listen(3000, async () =>{
-    client.on("connect", async () =>
-        await dbInitialize(client)
-    )
-    console.log('Server Up')
-})
+try {
+     await dbInitialize(client)
+    app.listen(3000, async () =>{
+    console.log('Server Up')}
+)
+} catch (error) {
+   console.log(error) 
+}
