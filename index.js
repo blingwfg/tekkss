@@ -56,11 +56,9 @@ app.post('/create-data' , upload.single('gambar'), async (req, res) =>{
             Bucket: process.env.AWS_BUCKET,
             ContentType: req.file.mimetype,
             Key: req.file.originalname,
-            ACL: 'public-read'
-
         }
 
-        const imageUrl = `${process.env.AWS_ENDPOINT}/${process.env.AWS_BUCKET}/${req.file.originalname}`
+        const imageUrl = `https://${process.env.AWS_S3_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${req.file.originalname}`
         await s3.send(new PutObjectCommand(params))
 
           const query = {
@@ -85,6 +83,7 @@ app.post('/create-data' , upload.single('gambar'), async (req, res) =>{
 try {
     await dbInitialize(client)
     app.listen(3000, async () =>{
+        console.log(process.env)
         console.log('Server Up')
     }
 )
