@@ -53,7 +53,7 @@ app.post('/create-data' , upload.single('gambar'), async (req, res) =>{
         const id = nanoid(8);
         const params = {
             Body:req.file.buffer,
-            Bucket: process.env.AWS_BUCKET,
+            Bucket: process.env.AWS_S3_NAME,
             ContentType: req.file.mimetype,
             Key: req.file.originalname,
         }
