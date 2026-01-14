@@ -29,7 +29,7 @@ app.use(cors(
         methods: ['POST', 'GET', 'OPTIONS', 'DELETE']
     }
 ))
-
+app.options('*', cors())
 // set Views Engine
 app.set('views', join(dirname(import.meta.filename), 'views'));
 app.set('view engine', 'ejs');
