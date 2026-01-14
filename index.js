@@ -23,7 +23,12 @@ const app = express()
 const upload = multer( {storage: memoryStorage()})
 
 // use CORS
-app.use(cors())
+app.use(cors(
+    {
+        origin: '*',
+        methods: ['POST', 'GET', 'OPTIONS', 'DELETE']
+    }
+))
 
 // set Views Engine
 app.set('views', join(dirname(import.meta.filename), 'views'));
