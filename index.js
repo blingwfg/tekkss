@@ -26,7 +26,8 @@ const upload = multer( {storage: memoryStorage()})
 app.use(cors(
     {
         origin: '*',
-        methods: ['POST', 'GET', 'OPTIONS', 'DELETE']
+        methods: ['POST', 'GET', 'OPTIONS', 'DELETE'],
+        allowedHeaders: ['Content-Type']
     }
 ))
 app.options('*', cors())
