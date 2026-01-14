@@ -26,7 +26,7 @@
                     <label for="file"></label>file : <br>
                     <input type="file" id="gambar" class="border p-1"><br>
 
-                    <button type="submit" id="btn-submit" class="border bg-slate-300 my-2 p-2 rounded-md" >Submit</button>
+                    <button type="submit" id="btn-submit" class="border bg-slate-300 my-2 p-2 rounded-md hover:bg-pink-400" >Submit</button>
                 </form>
             </div>
     <script>
@@ -49,8 +49,6 @@
                 });
                 return
             }
-
-            console.log(gambar.value)
             payload.append('name', name.value)
             payload.append('gambar', gambar.files[0])
 

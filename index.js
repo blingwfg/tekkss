@@ -74,7 +74,7 @@ app.post('/create-data' , upload.single('gambar'), async (req, res) =>{
     
 
     } catch (error) {
-        res.status(500)
+        res.status(500).send('server Error')
         console.error(error)
     }
 })
