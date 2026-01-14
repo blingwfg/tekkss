@@ -30,7 +30,6 @@ app.use(cors(
         allowedHeaders: ['Content-Type']
     }
 ))
-app.options('*', cors())
 // set Views Engine
 app.set('views', join(dirname(import.meta.filename), 'views'));
 app.set('view engine', 'ejs');
